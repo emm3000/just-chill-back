@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: "Just-Chill"
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/justchill"
+    username: "dark"
+    password: "dark"
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
