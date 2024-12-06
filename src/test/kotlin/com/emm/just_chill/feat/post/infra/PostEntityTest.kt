@@ -1,8 +1,14 @@
 package com.emm.just_chill.feat.post.infra
 
-import com.emm.just_chill.feat.profile.infra.UserProfileJpaRepository
-import com.emm.just_chill.feat.user.infra.UserEntity
-import com.emm.just_chill.feat.user.infra.UserJpaRepository
+import com.emm.just_chill.feat.profile.ProfileRepository
+import com.emm.just_chill.feat.auth.UserEntity
+import com.emm.just_chill.feat.auth.UserRepository
+import com.emm.just_chill.feat.post.CourseEntity
+import com.emm.just_chill.feat.post.CourseJpaRepository
+import com.emm.just_chill.feat.post.PostEntity
+import com.emm.just_chill.feat.post.PostJpaRepository
+import com.emm.just_chill.feat.post.StudentEntity
+import com.emm.just_chill.feat.post.StudentJpaRepository
 import com.github.javafaker.Faker
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,8 +17,8 @@ import java.util.*
 
 @SpringBootTest
 class PostEntityTest(
-    @Autowired private val userProfileRepository: UserProfileJpaRepository,
-    @Autowired private val userRepository: UserJpaRepository,
+    @Autowired private val userProfileRepository: ProfileRepository,
+    @Autowired private val userRepository: UserRepository,
     @Autowired private val postRepository: PostJpaRepository,
     @Autowired private val studentJpaRepository: StudentJpaRepository,
     @Autowired private val courseJpaRepository: CourseJpaRepository,
@@ -42,6 +48,7 @@ class PostEntityTest(
             id = UUID.randomUUID().toString(),
             name = faker.name().firstName(),
             email = faker.internet().emailAddress(),
+            password = faker.internet().password(),
         )
 
         val postsEntities: List<PostEntity> = (1..15).map {

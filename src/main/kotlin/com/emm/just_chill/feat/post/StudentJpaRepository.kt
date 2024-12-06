@@ -1,4 +1,4 @@
-package com.emm.just_chill.feat.post.infra
+package com.emm.just_chill.feat.post
 
 import org.springframework.data.jpa.repository.JpaRepository
 

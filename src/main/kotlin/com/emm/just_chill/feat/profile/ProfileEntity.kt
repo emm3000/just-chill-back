@@ -1,8 +1,6 @@
-package com.emm.just_chill.feat.profile.infra
+package com.emm.just_chill.feat.profile
 
-import com.emm.just_chill.feat.profile.domain.UserProfile
-import com.emm.just_chill.feat.user.infra.UserEntity
-import jakarta.persistence.CascadeType
+import com.emm.just_chill.feat.auth.UserEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
@@ -14,7 +12,7 @@ import java.time.LocalDate
 
 @Entity
 @Table(name = "user_profile")
-class UserProfileEntity(
+class ProfileEntity(
 
     @Id
     val id: String,
@@ -28,19 +26,7 @@ class UserProfileEntity(
     @Column(nullable = true)
     val profilePicture: String,
 
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     val user: UserEntity,
-) {
-
-    companion object {
-
-        fun from(userProfile: UserProfile) = UserProfileEntity(
-            id = userProfile.id,
-            address = userProfile.address,
-            birthDate = userProfile.birthDate,
-            profilePicture = userProfile.profilePicture,
-            user = UserEntity.from(userProfile.user),
-        )
-    }
-}
+)

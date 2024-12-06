@@ -1,6 +1,5 @@
-package com.emm.just_chill.feat.post.infra
+package com.emm.just_chill.feat.post
 
-import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
