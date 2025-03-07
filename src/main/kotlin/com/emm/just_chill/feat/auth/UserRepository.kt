@@ -1,5 +1,5 @@
 package com.emm.just_chill.feat.auth
 
-import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.repository.CrudRepository
 
-interface UserRepository: JpaRepository<UserEntity, String>
+interface UserRepository: CrudRepository<UserEntity, String>
