@@ -21,6 +21,7 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -31,6 +32,8 @@ dependencies {
     testImplementation("com.github.javafaker:javafaker:1.0.2") { exclude("org.yaml") }
     testImplementation(group = "org.yaml", name = "snakeyaml", version = "2.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    implementation("org.flywaydb:flyway-core:8.5.7")
 }
 
 kotlin {
