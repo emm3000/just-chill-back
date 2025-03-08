@@ -15,6 +15,10 @@ java {
     }
 }
 
+tasks.bootJar {
+    archiveFileName.set("app.jar")
+}
+
 repositories {
     mavenCentral()
 }

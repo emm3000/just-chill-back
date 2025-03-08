@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: "Just-Chill"
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
