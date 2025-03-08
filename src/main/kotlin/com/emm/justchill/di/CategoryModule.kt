@@ -1,12 +1,12 @@
-package com.emm.justchill.feat.di
+package com.emm.justchill.di
 
-import com.emm.justchill.feat.features.category.application.CategoryCreator
-import com.emm.justchill.feat.features.category.application.CategoryDeleter
-import com.emm.justchill.feat.features.category.application.CategoryFetcher
-import com.emm.justchill.feat.features.category.application.CategoryFinder
-import com.emm.justchill.feat.features.category.domain.CategoryRepository
-import com.emm.justchill.feat.features.category.infrastructure.DbCategoryRepository
-import com.emm.justchill.feat.features.category.infrastructure.DefaultCategoryRepository
+import com.emm.justchill.features.category.application.CategoryCreator
+import com.emm.justchill.features.category.application.CategoryDeleter
+import com.emm.justchill.features.category.application.CategoryFetcher
+import com.emm.justchill.features.category.application.CategoryFinder
+import com.emm.justchill.features.category.domain.CategoryRepository
+import com.emm.justchill.features.category.infra.DbCategoryRepository
+import com.emm.justchill.features.category.infra.DefaultCategoryRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

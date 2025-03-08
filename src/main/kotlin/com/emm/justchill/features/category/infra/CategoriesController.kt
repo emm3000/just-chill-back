@@ -1,10 +1,10 @@
-package com.emm.justchill.feat.features.category.infrastructure
+package com.emm.justchill.features.category.infra
 
-import com.emm.justchill.feat.features.category.application.CategoryCreator
-import com.emm.justchill.feat.features.category.application.CategoryDeleter
-import com.emm.justchill.feat.features.category.application.CategoryFetcher
-import com.emm.justchill.feat.features.category.application.CategoryFinder
-import com.emm.justchill.feat.features.category.domain.Category
+import com.emm.justchill.features.category.application.CategoryCreator
+import com.emm.justchill.features.category.application.CategoryDeleter
+import com.emm.justchill.features.category.application.CategoryFetcher
+import com.emm.justchill.features.category.application.CategoryFinder
+import com.emm.justchill.features.category.domain.Category
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -30,7 +30,7 @@ class CategoriesController(
 
     @PostMapping("/category/create")
     fun create(@RequestBody request: CategoryRequest): ResponseEntity<Category> {
-        val category: Category = categoryCreator.create(request.name)
+        val category: Category = categoryCreator.create(request.name, request.userId, request.type)
         return ResponseEntity.status(HttpStatus.CREATED).body(category)
     }
 

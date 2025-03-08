@@ -1,4 +1,4 @@
-package com.emm.justchill.feat.features.category.infrastructure
+package com.emm.justchill.features.category.infra
 
 import org.springframework.data.repository.CrudRepository
 

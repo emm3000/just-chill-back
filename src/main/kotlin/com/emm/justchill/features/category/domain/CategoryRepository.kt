@@ -1,4 +1,4 @@
-package com.emm.justchill.feat.features.category.domain
+package com.emm.justchill.features.category.domain
 
 interface CategoryRepository {
 

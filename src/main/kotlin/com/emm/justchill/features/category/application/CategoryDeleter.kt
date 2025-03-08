@@ -1,6 +1,6 @@
-package com.emm.justchill.feat.features.category.application
+package com.emm.justchill.features.category.application
 
-import com.emm.justchill.feat.features.category.domain.CategoryRepository
+import com.emm.justchill.features.category.domain.CategoryRepository
 
 class CategoryDeleter(private val repository: CategoryRepository) {
 

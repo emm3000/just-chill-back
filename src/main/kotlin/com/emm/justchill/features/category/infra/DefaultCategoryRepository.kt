@@ -1,14 +1,14 @@
-package com.emm.justchill.feat.features.category.infrastructure
+package com.emm.justchill.features.category.infra
 
-import com.emm.justchill.feat.features.category.domain.Category
-import com.emm.justchill.feat.features.category.domain.CategoryRepository
+import com.emm.justchill.features.category.domain.Category
+import com.emm.justchill.features.category.domain.CategoryRepository
 import kotlin.jvm.optionals.getOrNull
 
 class DefaultCategoryRepository(private val dbCategoryRepository: DbCategoryRepository) : CategoryRepository {
 
     override fun findAll(): List<Category> {
         val categoriesEntity: Iterable<CategoryEntity> = dbCategoryRepository.findAll()
-        val categories: List<Category> = categoriesEntity.map(CategoryEntity::from)
+        val categories: List<Category> = categoriesEntity.map(CategoryEntity.Companion::from)
         return categories
     }
 
@@ -22,7 +22,10 @@ class DefaultCategoryRepository(private val dbCategoryRepository: DbCategoryRepo
         val categoryEntity = CategoryEntity(
             categoryId = category.id,
             name = category.name,
-        ).markAsNew()
+            userId = category.userId,
+            type = category.type.name,
+        )
+        categoryEntity.markNew()
         dbCategoryRepository.save(categoryEntity)
         return category
     }
@@ -35,7 +38,9 @@ class DefaultCategoryRepository(private val dbCategoryRepository: DbCategoryRepo
         val categoryEntity = CategoryEntity(
             categoryId = category.id,
             name = category.name,
-        ).markAsNew()
+            userId = category.userId,
+            type = category.type.name,
+        )
         dbCategoryRepository.save(categoryEntity)
         return category
     }
