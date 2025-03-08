@@ -5,7 +5,7 @@ import com.emm.justchill.features.category.application.CategoryDeleter
 import com.emm.justchill.features.category.application.CategoryFetcher
 import com.emm.justchill.features.category.application.CategoryFinder
 import com.emm.justchill.features.category.domain.CategoryRepository
-import com.emm.justchill.features.category.infra.DbCategoryRepository
+import com.emm.justchill.features.category.infra.CrudCategoryRepository
 import com.emm.justchill.features.category.infra.DefaultCategoryRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -15,8 +15,8 @@ class CategoryModule {
 
     @Bean
     fun categoryRepository(
-        dbCategoryRepository: DbCategoryRepository,
-    ): CategoryRepository = DefaultCategoryRepository(dbCategoryRepository)
+        crudCategoryRepository: CrudCategoryRepository,
+    ): CategoryRepository = DefaultCategoryRepository(crudCategoryRepository)
 
     @Bean
     fun categoryDeleter(repository: CategoryRepository) = CategoryDeleter(repository)
