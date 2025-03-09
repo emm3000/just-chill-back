@@ -2,4 +2,7 @@ package com.emm.justchill.features.user.infra
 
 import org.springframework.data.repository.CrudRepository
 
-interface CrudUserRepository: CrudRepository<UserEntity, String>
+interface CrudUserRepository: CrudRepository<UserEntity, String> {
+
+    fun findByEmail(email: String): UserEntity?
+}
